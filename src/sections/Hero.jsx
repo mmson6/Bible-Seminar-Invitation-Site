@@ -360,6 +360,7 @@ export default function Hero() {
                 </label>
                 <input
                   type="email"
+                  pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
                   placeholder={lang === "en" ? "your@email.com" : "이메일 주소"}
                   required
                   value={vals.email}
@@ -373,6 +374,7 @@ export default function Hero() {
                 </label>
                 <input
                   type="tel"
+                  pattern="[\d\s\-\(\)\+]+"
                   placeholder={
                     lang === "en"
                       ? "(000) 000-0000"
@@ -494,6 +496,7 @@ const signupLabelSt = {
   color: "rgba(220,235,255,0.75)",
   display: "block",
   marginBottom: "5px",
+  textAlign: "left",
 };
 
 const signupInputSt = {
