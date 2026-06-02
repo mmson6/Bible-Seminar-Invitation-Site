@@ -64,12 +64,6 @@ export default function Contact() {
                 value: t.email,
                 href: "mailto:jbchsva@gmail.com",
               },
-              {
-                icon: "\u25b6",
-                label: "YouTube",
-                value: "@jbchsva",
-                href: "https://www.youtube.com/@jbchsva",
-              },
             ].map(({ icon, label, value, href }) => (
               <div
                 key={label}
