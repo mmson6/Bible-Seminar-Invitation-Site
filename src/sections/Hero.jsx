@@ -1,8 +1,13 @@
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 import { useLang } from "../context/LangContext";
 import { text } from "../content";
 
 export default function Hero() {
   const { lang } = useLang();
+  const formRef = useRef();
+  const [signupStatus, setSignupStatus] = useState(null);
+  const [vals, setVals] = useState({ name: "", email: "", msg: "" });
   const t = text[lang];
 
   return (
@@ -259,6 +264,176 @@ export default function Hero() {
 
         </div>
 
+        {/* Sign-up form */}
+        <div
+          style={{
+            maxWidth: "480px",
+            margin: "0 auto",
+            background: "rgba(255,255,255,0.08)",
+            backdropFilter: "blur(16px)",
+            borderRadius: "20px",
+            border: "1px solid rgba(255,255,255,0.15)",
+            padding: "32px",
+            boxShadow: "0 24px 64px rgba(0,0,0,0.3)",
+          }}
+        >
+          <h3
+            style={{
+              fontFamily: "'DNFForgedBlade', 'Hahmlet', Georgia, serif",
+              fontSize: "1.3rem",
+              fontWeight: 400,
+              color: "#fff",
+              margin: "0 0 8px",
+              textAlign: "center",
+            }}
+          >
+            {lang === "en" ? "Sign Up for Bible Seminar" : "성경강연회 등록"}
+          </h3>
+          <p
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: "0.82rem",
+              color: "rgba(200,220,255,0.6)",
+              margin: "0 0 24px",
+              textAlign: "center",
+            }}
+          >
+            {lang === "en"
+              ? "Register your attendance below"
+              : "아래에 참석 등록을 해주세요"}
+          </p>
+
+          {signupStatus === "success" ? (
+            <div style={{ textAlign: "center", padding: "16px 0" }}>
+              <div style={{ fontSize: "2rem", marginBottom: "8px" }}>🕊</div>
+              <p
+                style={{
+                  fontFamily: "'DNFForgedBlade', 'Hahmlet', Georgia, serif",
+                  fontSize: "1.1rem",
+                  color: "#fff",
+                }}
+              >
+                {lang === "en"
+                  ? "You're signed up! We look forward to seeing you."
+                  : "등록되었습니다! 뵙기를 기대합니다."}
+              </p>
+            </div>
+          ) : (
+            <form
+              ref={formRef}
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (!vals.name || !vals.email) return;
+                setSignupStatus("sending");
+                emailjs
+                  .send(
+                    import.meta.env.VITE_EMAILJS_SERVICE,
+                    import.meta.env.VITE_EMAILJS_TEMPLATE,
+                    {
+                      user_name: vals.name,
+                      user_email: vals.email,
+                      message: vals.msg || `[Bible Seminar Sign-up] ${vals.name}`,
+                    },
+                    import.meta.env.VITE_EMAILJS_KEY,
+                  )
+                  .then(() => setSignupStatus("success"))
+                  .catch(() => setSignupStatus("error"));
+              }}
+              style={{ display: "flex", flexDirection: "column", gap: "12px" }}
+            >
+              <div>
+                <label style={signupLabelSt}>
+                  {lang === "en" ? "Name" : "이름"}
+                </label>
+                <input
+                  type="text"
+                  placeholder={lang === "en" ? "Your name" : "이름"}
+                  required
+                  value={vals.name}
+                  onChange={(e) => setVals({ ...vals, name: e.target.value })}
+                  style={signupInputSt}
+                />
+              </div>
+              <div>
+                <label style={signupLabelSt}>
+                  {lang === "en" ? "Email" : "이메일"}
+                </label>
+                <input
+                  type="email"
+                  placeholder={lang === "en" ? "your@email.com" : "이메일 주소"}
+                  required
+                  value={vals.email}
+                  onChange={(e) => setVals({ ...vals, email: e.target.value })}
+                  style={signupInputSt}
+                />
+              </div>
+              <div>
+                <label style={signupLabelSt}>
+                  {lang === "en" ? "Message (optional)" : "메시지 (선택)"}
+                </label>
+                <textarea
+                  placeholder={
+                    lang === "en"
+                      ? "Any questions or notes?"
+                      : "질문이나 메모를 남겨주세요"
+                  }
+                  value={vals.msg}
+                  onChange={(e) => setVals({ ...vals, msg: e.target.value })}
+                  rows={3}
+                  style={{ ...signupInputSt, resize: "vertical" }}
+                />
+              </div>
+              {signupStatus === "error" && (
+                <p
+                  style={{
+                    color: "#ff8a8a",
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontSize: "0.82rem",
+                    margin: 0,
+                  }}
+                >
+                  {lang === "en"
+                    ? "Something went wrong. Please try again."
+                    : "오류가 발생했습니다. 다시 시도해 주세요."}
+                </p>
+              )}
+              <button
+                type="submit"
+                disabled={signupStatus === "sending"}
+                style={{
+                  background:
+                    signupStatus === "sending"
+                      ? "rgba(255,255,255,0.3)"
+                      : "#fff",
+                  color:
+                    signupStatus === "sending"
+                      ? "rgba(255,255,255,0.6)"
+                      : "var(--blue)",
+                  border: "none",
+                  borderRadius: "40px",
+                  padding: "13px",
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontWeight: 600,
+                  fontSize: "0.9rem",
+                  letterSpacing: "0.08em",
+                  cursor:
+                    signupStatus === "sending" ? "not-allowed" : "pointer",
+                  transition: "all 0.2s",
+                  textTransform: "uppercase",
+                  boxShadow: "0 4px 14px rgba(0,0,0,0.2)",
+                }}
+              >
+                {signupStatus === "sending"
+                  ? lang === "en"
+                    ? "Sending..."
+                    : "전송 중..."
+                  : lang === "en"
+                    ? "Sign Up"
+                    : "등록하기"}
+              </button>
+            </form>
+          )}
+        </div>
 
         {/* Scroll cue */}
         <div
@@ -305,6 +480,31 @@ export default function Hero() {
     </section>
   );
 }
+
+const signupLabelSt = {
+  fontFamily: "'DM Sans', sans-serif",
+  fontSize: "0.72rem",
+  fontWeight: 600,
+  letterSpacing: "0.1em",
+  textTransform: "uppercase",
+  color: "rgba(200,220,255,0.5)",
+  display: "block",
+  marginBottom: "5px",
+};
+
+const signupInputSt = {
+  width: "100%",
+  background: "rgba(255,255,255,0.08)",
+  border: "1px solid rgba(255,255,255,0.15)",
+  borderRadius: "12px",
+  color: "#fff",
+  fontFamily: "'DM Sans', sans-serif",
+  fontSize: "0.9rem",
+  padding: "12px 16px",
+  outline: "none",
+  boxSizing: "border-box",
+  transition: "border-color 0.2s, box-shadow 0.2s",
+};
 
 function chip(bg, color, top_or_bottom, side, dark = false) {
   const pos = top_or_bottom.startsWith("top")
