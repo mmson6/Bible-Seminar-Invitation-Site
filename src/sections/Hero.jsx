@@ -321,7 +321,7 @@ export default function Hero() {
                   .then(() => setSignupStatus("success"))
                   .catch(() => setSignupStatus("error"));
               }}
-              style={{ display: "flex", flexDirection: "column", gap: "12px" }}
+              style={{ display: "flex", flexDirection: "column", gap: "16px" }}
             >
               <div>
                 <label style={signupLabelSt}>{t.signupName}</label>
