@@ -1,38 +1,9 @@
-import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
 import { useLang } from "../context/LangContext";
 import { text } from "../content";
 
 export default function Contact() {
   const { lang } = useLang();
   const t = text[lang];
-  const formRef = useRef();
-  const [status, setStatus] = useState(null);
-  const [vals, setVals] = useState({ name: "", email: "", msg: "" });
-
-  function handleSubmit(e) {
-    if (e) e.preventDefault();
-    if (!vals.name || !vals.email || !vals.msg) return;
-    setStatus("sending");
-
-    emailjs
-      .send(
-        import.meta.env.VITE_EMAILJS_SERVICE,
-        import.meta.env.VITE_EMAILJS_TEMPLATE,
-        {
-          user_name: vals.name,
-          user_email: vals.email,
-          message: vals.msg,
-        },
-        import.meta.env.VITE_EMAILJS_KEY,
-      )
-      .then(() => {
-        setStatus("success");
-      })
-      .catch(() => {
-        setStatus("error");
-      });
-  }
 
   return (
     <section
@@ -61,16 +32,7 @@ export default function Contact() {
           />
         </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1.3fr",
-            gap: "56px",
-            alignItems: "start",
-          }}
-          className="contact-grid"
-        >
-          {/* Left: info */}
+        <div>
           <div>
             <p
               style={{
@@ -179,159 +141,6 @@ export default function Contact() {
               </div>
             ))}
           </div>
-
-          {/* Right: form */}
-          <div
-            style={{
-              background: "var(--white)",
-              borderRadius: "20px",
-              border: "1px solid var(--border)",
-              padding: "36px",
-              boxShadow: "0 4px 24px rgba(26,93,200,0.06)",
-            }}
-          >
-            {status === "success" ? (
-              <div style={{ textAlign: "center", padding: "32px 0" }}>
-                <div style={{ fontSize: "2.5rem", marginBottom: "12px" }}>
-                  {"\ud83d\udd4a"}
-                </div>
-                <p
-                  style={{
-                    fontFamily: "'DNFForgedBlade', 'Hahmlet', Georgia,serif",
-                    fontSize: "1.2rem",
-                    color: "var(--navy)",
-                    marginBottom: "8px",
-                  }}
-                >
-                  {t.contactSuccess}
-                </p>
-              </div>
-            ) : (
-              <form
-                ref={formRef}
-                onSubmit={handleSubmit}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "14px",
-                }}
-              >
-                <div>
-                  <label style={labelFieldSt}>{t.contactName}</label>
-                  <input
-                    name="user_name"
-                    type="text"
-                    placeholder={t.namePlaceholder}
-                    required
-                    value={vals.name}
-                    onChange={(e) => setVals({ ...vals, name: e.target.value })}
-                    style={inp}
-                    onFocus={(e) => {
-                      e.target.style.borderColor = "var(--blue)";
-                      e.target.style.boxShadow =
-                        "0 0 0 3px rgba(26,93,200,0.1)";
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.borderColor = "var(--border)";
-                      e.target.style.boxShadow = "none";
-                    }}
-                  />
-                </div>
-                <div>
-                  <label style={labelFieldSt}>{t.contactEmail}</label>
-                  <input
-                    name="user_email"
-                    type="email"
-                    placeholder={t.emailPlaceholder}
-                    value={vals.email}
-                    onChange={(e) =>
-                      setVals({ ...vals, email: e.target.value })
-                    }
-                    required
-                    style={inp}
-                    onFocus={(e) => {
-                      e.target.style.borderColor = "var(--blue)";
-                      e.target.style.boxShadow =
-                        "0 0 0 3px rgba(26,93,200,0.1)";
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.borderColor = "var(--border)";
-                      e.target.style.boxShadow = "none";
-                    }}
-                  />
-                </div>
-                <div>
-                  <label style={labelFieldSt}>{t.contactMsg}</label>
-                  <textarea
-                    name="message"
-                    placeholder={t.msgPlaceholder}
-                    value={vals.msg}
-                    onChange={(e) => setVals({ ...vals, msg: e.target.value })}
-                    required
-                    rows={5}
-                    style={{ ...inp, resize: "vertical" }}
-                    onFocus={(e) => {
-                      e.target.style.borderColor = "var(--blue)";
-                      e.target.style.boxShadow =
-                        "0 0 0 3px rgba(26,93,200,0.1)";
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.borderColor = "var(--border)";
-                      e.target.style.boxShadow = "none";
-                    }}
-                  />
-                </div>
-                {status === "error" && (
-                  <p
-                    style={{
-                      color: "#e53e3e",
-                      fontFamily: "'DM Sans',sans-serif",
-                      fontSize: "0.85rem",
-                      margin: 0,
-                    }}
-                  >
-                    {t.contactError}
-                  </p>
-                )}
-                <button
-                  type="submit"
-                  disabled={status === "sending"}
-                  style={{
-                    background:
-                      status === "sending"
-                        ? "var(--text-muted)"
-                        : "var(--blue)",
-                    color: "#fff",
-                    border: "none",
-                    borderRadius: "40px",
-                    padding: "13px",
-                    fontFamily: "'DM Sans',sans-serif",
-                    fontWeight: 600,
-                    fontSize: "0.9rem",
-                    letterSpacing: "0.08em",
-                    cursor: status === "sending" ? "not-allowed" : "pointer",
-                    transition: "all 0.2s",
-                    textTransform: "uppercase",
-                    boxShadow: "0 4px 14px rgba(26,93,200,0.3)",
-                  }}
-                  onMouseEnter={(e) => {
-                    if (status !== "sending") {
-                      e.currentTarget.style.transform = "translateY(-2px)";
-                      e.currentTarget.style.boxShadow =
-                        "0 8px 20px rgba(26,93,200,0.4)";
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "";
-                    e.currentTarget.style.boxShadow =
-                      "0 4px 14px rgba(26,93,200,0.3)";
-                  }}
-                >
-                  {status === "sending" ? t.sending : t.contactSend}
-                </button>
-              </form>
-            )}
-          </div>
         </div>
 
         {/* Footer */}
@@ -351,40 +160,9 @@ export default function Contact() {
         </div>
       </div>
 
-      <style>{`
-        @media(max-width:640px){
-          .contact-grid{grid-template-columns:1fr !important;}
-        }
-      `}</style>
     </section>
   );
 }
-
-/* Style constants */
-const inp = {
-  width: "100%",
-  background: "var(--cream)",
-  border: "1px solid var(--border)",
-  borderRadius: "12px",
-  color: "var(--text)",
-  fontFamily: "'DM Sans',sans-serif",
-  fontSize: "0.9rem",
-  padding: "13px 16px",
-  outline: "none",
-  boxSizing: "border-box",
-  transition: "border-color 0.2s, box-shadow 0.2s",
-};
-
-const labelFieldSt = {
-  fontFamily: "'DM Sans',sans-serif",
-  fontSize: "0.75rem",
-  fontWeight: 600,
-  letterSpacing: "0.1em",
-  textTransform: "uppercase",
-  color: "var(--text-muted)",
-  display: "block",
-  marginBottom: "6px",
-};
 
 const labelSt = {
   fontFamily: "'DM Sans',sans-serif",
