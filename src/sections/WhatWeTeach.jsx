@@ -214,7 +214,7 @@ export default function WhatWeTeach() {
                     borderRadius: "50%",
                     border: "3px solid var(--cream)",
                     boxShadow: `0 0 0 2px ${dayAccents[i]}55`,
-                    zIndex: 2,
+                    zIndex: 0,
                   }}
                 />
 
