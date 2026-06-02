@@ -7,7 +7,7 @@ export default function Hero() {
   const { lang } = useLang();
   const formRef = useRef();
   const [signupStatus, setSignupStatus] = useState(null);
-  const [vals, setVals] = useState({ name: "", email: "", msg: "" });
+  const [vals, setVals] = useState({ name: "", email: "", phone: "" });
   const t = text[lang];
 
   return (
@@ -323,7 +323,7 @@ export default function Hero() {
               ref={formRef}
               onSubmit={(e) => {
                 e.preventDefault();
-                if (!vals.name || !vals.email) return;
+                if (!vals.name || !vals.email || !vals.phone) return;
                 setSignupStatus("sending");
                 emailjs
                   .send(
@@ -332,7 +332,7 @@ export default function Hero() {
                     {
                       user_name: vals.name,
                       user_email: vals.email,
-                      message: vals.msg || `[Bible Seminar Sign-up] ${vals.name}`,
+                      message: `[Bible Seminar Sign-up] ${vals.name} / Phone: ${vals.phone}`,
                     },
                     import.meta.env.VITE_EMAILJS_KEY,
                   )
@@ -343,7 +343,7 @@ export default function Hero() {
             >
               <div>
                 <label style={signupLabelSt}>
-                  {lang === "en" ? "Name" : "이름"}
+                  {lang === "en" ? "Name *" : "이름 *"}
                 </label>
                 <input
                   type="text"
@@ -356,7 +356,7 @@ export default function Hero() {
               </div>
               <div>
                 <label style={signupLabelSt}>
-                  {lang === "en" ? "Email" : "이메일"}
+                  {lang === "en" ? "Email *" : "이메일 *"}
                 </label>
                 <input
                   type="email"
@@ -369,18 +369,19 @@ export default function Hero() {
               </div>
               <div>
                 <label style={signupLabelSt}>
-                  {lang === "en" ? "Message (optional)" : "메시지 (선택)"}
+                  {lang === "en" ? "Phone *" : "전화번호 *"}
                 </label>
-                <textarea
+                <input
+                  type="tel"
                   placeholder={
                     lang === "en"
-                      ? "Any questions or notes?"
-                      : "질문이나 메모를 남겨주세요"
+                      ? "(000) 000-0000"
+                      : "전화번호"
                   }
-                  value={vals.msg}
-                  onChange={(e) => setVals({ ...vals, msg: e.target.value })}
-                  rows={3}
-                  style={{ ...signupInputSt, resize: "vertical" }}
+                  required
+                  value={vals.phone}
+                  onChange={(e) => setVals({ ...vals, phone: e.target.value })}
+                  style={signupInputSt}
                 />
               </div>
               {signupStatus === "error" && (
@@ -490,7 +491,7 @@ const signupLabelSt = {
   fontWeight: 600,
   letterSpacing: "0.1em",
   textTransform: "uppercase",
-  color: "rgba(200,220,255,0.5)",
+  color: "rgba(220,235,255,0.75)",
   display: "block",
   marginBottom: "5px",
 };
