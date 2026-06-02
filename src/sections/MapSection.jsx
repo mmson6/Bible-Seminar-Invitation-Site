@@ -190,7 +190,7 @@ export default function MapSection() {
             }}
           >
             <img
-              src={`${import.meta.env.BASE_URL}church-map.jpg`}
+              src={`${import.meta.env.BASE_URL}chi-church-map.jpg`}
               alt="Church location map"
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
               onError={(e) => {

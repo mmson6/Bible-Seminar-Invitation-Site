@@ -470,6 +470,9 @@ export default function Hero() {
           0%, 100% { transform: translateY(0); opacity: 0.5; }
           50%       { transform: translateY(7px); opacity: 0.9; }
         }
+        #hero input::placeholder, #hero textarea::placeholder {
+          color: rgba(200,220,255,0.5);
+        }
         @media (max-width: 768px) {
           .hero-chip { display: none !important; }
         }
@@ -494,8 +497,8 @@ const signupLabelSt = {
 
 const signupInputSt = {
   width: "100%",
-  background: "rgba(255,255,255,0.08)",
-  border: "1px solid rgba(255,255,255,0.15)",
+  background: "rgba(255,255,255,0.12)",
+  border: "1px solid rgba(255,255,255,0.2)",
   borderRadius: "12px",
   color: "#fff",
   fontFamily: "'DM Sans', sans-serif",
