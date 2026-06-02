@@ -20,9 +20,9 @@ export const text = {
     mapBtn: "Open in Google Maps",
 
     teachTitle: "What We Teach",
-    teachSubtitle: "A 6-Day Bible Seminar Contents",
+    teachSubtitle: "A 5-Day Bible Seminar Contents",
     teachIntro:
-      "The Bible Seminar is a life-changing six-day journey through Scripture. Each sermon is designed to help your understanding of the Bible and its relevance to your life today. No prior knowledge required.",
+      "The Bible Seminar is a life-changing five-day journey through Scripture. Each sermon is designed to help your understanding of the Bible and its relevance to your life today. No prior knowledge required.",
     days: [
       {
         day: "Day 1",
@@ -40,17 +40,17 @@ export const text = {
         desc: "Trace the history of Israel as a living testimony to the power and sovereignty of God throughout the ages.",
       },
       {
-        day: "Day 4",
+        day: "Day 3-4",
         title: "The Signs in the End Times",
         desc: "Examine what the Bible says about the end of the age and what signs are already unfolding in our world today.",
       },
       {
-        day: "Day 5",
+        day: "Day 4",
         title: "Sin of Man",
         desc: "Understand the nature of sin and its consequences — and how it affects every human being across all generations.",
       },
       {
-        day: "Day 6",
+        day: "Day 5",
         title: "Eternal Salvation",
         desc: "Learn God's plan for salvation and hope of eternal life freely offered to all who believe. God made a way of salvation by sending His begotten Son to die for our sins.",
       },
@@ -88,7 +88,7 @@ export const text = {
     mapBtn: "구글 지도로 열기",
 
     teachTitle: "성경강연회 순서",
-    teachSubtitle: "6일간의 성경강연회",
+    teachSubtitle: "5일간의 성경강연회",
     teachIntro:
       "천지만물을 창조하신 하나님, 인간의 역사를 주관하시고 섭리해 나가시는 하나님, 우리 인간을 사랑하시는 하나님, 공의를 견고히 세우시며 의와 거룩함으로 이 세상을 심판하시는 하나님. \n 6일동안 진행되는 성경강연회를 통해서 살아계신 하나님을 만나실 수 있습니다.",
     days: [
@@ -108,17 +108,17 @@ export const text = {
         desc: "하나님의 살아계심을 보여주는 확실한 증거, 이스라엘의 역사와 회복.",
       },
       {
-        day: "4일차",
+        day: "3-4일차",
         title: "마지막 시대의 징조",
         desc: "성경이 말하는 마지막 때와 오늘날 우리가 사는 세상에서 이미 나타나고 있는 징조들. 현재 우리 삶 속에서 일어나고 있는 자연재해, 전쟁, 질병. 이 모든 것들이 성경이 말하는 마지막 때의 징조입니다.",
       },
       {
-        day: "5일차",
+        day: "4일차",
         title: "인간의 죄",
         desc: "죄의 본질과 그 결과, 그리고 그것이 나에게 결국 어떤 영향을 미치는지 말씀을 통해 알 수 있습니다. \n 인간은 과연 선한 존재인가? 악한 존재인가? 성경은 인간을 어떻게 말하고 있는가? 그리고 죄인인 나의 결말은 무엇인가?",
       },
       {
-        day: "6일차",
+        day: "5일차",
         title: "영원한 구원",
         desc: "나의 죄를 어떻게 해결할 수 있는지 성경을 통해 배울 수 있습니다. 하나님은 모든 사람이 구원을 받으며 진리를 아는 데 이르기를 원하시느니라[딤전 2:4]",
       },
