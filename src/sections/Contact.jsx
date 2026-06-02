@@ -26,10 +26,10 @@ export default function Contact() {
         },
         import.meta.env.VITE_EMAILJS_KEY,
       )
-      .then((res) => {
+      .then(() => {
         setStatus("success");
       })
-      .catch((err) => {
+      .catch(() => {
         setStatus("error");
       });
   }
@@ -45,17 +45,10 @@ export default function Contact() {
       <div style={{ maxWidth: "900px", margin: "0 auto" }}>
         {/* Heading */}
         <div style={{ marginBottom: "52px" }}>
-          <p style={labelSt}>Get In Touch</p>
+          <p style={labelSt}>{t.getInTouch}</p>
           <h2 style={headSt}>
-            {lang === "en" ? (
-              <>
-                <em style={{ color: "var(--blue-mid)" }}>Contact</em> Us
-              </>
-            ) : (
-              <>
-                <em>문의</em>하기
-              </>
-            )}
+            <em style={{ color: "var(--blue-mid)" }}>{t.contactHeadingEm}</em>{" "}
+            {t.contactHeadingRest}
           </h2>
           <div
             style={{
@@ -88,34 +81,29 @@ export default function Contact() {
                 lineHeight: 1.3,
               }}
             >
-              {lang === "en"
-                ? "Please send an email if you have any questions or would like to get in touch with us"
-                : "문의 사항이 있다면 여기로 보내주세요"}
+              {t.contactIntro}
             </p>
 
             {[
               {
-                icon: "🕊",
-                label: lang === "en" ? "Church" : "교회",
-                value:
-                  lang === "en"
-                    ? "Jesus Baptist Chicago Church"
-                    : "시카고침례교회",
+                icon: "\ud83d\udd4a",
+                label: t.churchLabel,
+                value: t.churchName,
               },
               {
-                icon: "📞",
-                label: lang === "en" ? "Phone" : "전화",
+                icon: "\ud83d\udcde",
+                label: t.phoneLabel,
                 value: t.phone,
                 href: "tel:+17578499500",
               },
               {
-                icon: "✉",
-                label: lang === "en" ? "Email" : "이메일",
+                icon: "\u2709",
+                label: t.emailLabel,
                 value: t.email,
                 href: "mailto:jbchsva@gmail.com",
               },
               {
-                icon: "▶",
+                icon: "\u25b6",
                 label: "YouTube",
                 value: "@jbchsva",
                 href: "https://www.youtube.com/@jbchsva",
@@ -205,7 +193,7 @@ export default function Contact() {
             {status === "success" ? (
               <div style={{ textAlign: "center", padding: "32px 0" }}>
                 <div style={{ fontSize: "2.5rem", marginBottom: "12px" }}>
-                  🕊
+                  {"\ud83d\udd4a"}
                 </div>
                 <p
                   style={{
@@ -233,7 +221,7 @@ export default function Contact() {
                   <input
                     name="user_name"
                     type="text"
-                    placeholder={lang === "en" ? "Your name" : "이름"}
+                    placeholder={t.namePlaceholder}
                     required
                     value={vals.name}
                     onChange={(e) => setVals({ ...vals, name: e.target.value })}
@@ -254,9 +242,7 @@ export default function Contact() {
                   <input
                     name="user_email"
                     type="email"
-                    placeholder={
-                      lang === "en" ? "your@email.com" : "이메일 주소"
-                    }
+                    placeholder={t.emailPlaceholder}
                     value={vals.email}
                     onChange={(e) =>
                       setVals({ ...vals, email: e.target.value })
@@ -278,11 +264,7 @@ export default function Contact() {
                   <label style={labelFieldSt}>{t.contactMsg}</label>
                   <textarea
                     name="message"
-                    placeholder={
-                      lang === "en"
-                        ? "How can we help you?"
-                        : "메시지를 입력하세요"
-                    }
+                    placeholder={t.msgPlaceholder}
                     value={vals.msg}
                     onChange={(e) => setVals({ ...vals, msg: e.target.value })}
                     required
@@ -345,11 +327,7 @@ export default function Contact() {
                       "0 4px 14px rgba(26,93,200,0.3)";
                   }}
                 >
-                  {status === "sending"
-                    ? lang === "en"
-                      ? "Sending..."
-                      : "전송 중..."
-                    : t.contactSend}
+                  {status === "sending" ? t.sending : t.contactSend}
                 </button>
               </form>
             )}
@@ -369,10 +347,7 @@ export default function Contact() {
             letterSpacing: "0.08em",
           }}
         >
-          🕊 &nbsp;
-          {lang === "en"
-            ? "© 2026 Jesus Baptist Chicago Church · LIFE WORD MISSION USA"
-            : "© 2026 시카고침례교회 · 미주생명의말씀선교회"}
+          {"\ud83d\udd4a"} &nbsp;{t.footerText}
         </div>
       </div>
 
@@ -385,7 +360,7 @@ export default function Contact() {
   );
 }
 
-/* ── Style constants (outside component so they're not recreated on render) ── */
+/* Style constants */
 const inp = {
   width: "100%",
   background: "var(--cream)",

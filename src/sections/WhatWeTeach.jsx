@@ -35,17 +35,10 @@ export default function WhatWeTeach() {
       <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
         {/* Heading */}
         <div style={{ marginBottom: "64px" }}>
-          <p style={labelSt}>Bible Seminar</p>
+          <p style={labelSt}>{t.teachLabel}</p>
           <h2 style={headSt}>
-            {lang === "en" ? (
-              <>
-                <em style={{ color: "var(--blue-mid)" }}>What We</em> Teach
-              </>
-            ) : (
-              <>
-                <em style={{ color: "var(--blue-mid)" }}>성경강연회</em> 순서
-              </>
-            )}
+            <em style={{ color: "var(--blue-mid)" }}>{t.teachHeadingEm}</em>{" "}
+            {t.teachHeadingRest}
           </h2>
           <div
             style={{
@@ -224,7 +217,6 @@ export default function WhatWeTeach() {
             );
           })}
         </div>
-
       </div>
 
       <style>{`

@@ -87,17 +87,13 @@ export default function Hero() {
         className="hero-chip"
         style={chip("#e8f0fe", "#1a5dc8", "top:18%", "left:5%")}
       >
-        {lang === "en"
-          ? "What is life after death?"
-          : "죽음 이후엔 무엇이 있을까?"}
+        {t.chip1}
       </div>
       <div
         className="hero-chip"
         style={chip("#fff", "#4a90d9", "top:30%", "right:5%")}
       >
-        {lang === "en"
-          ? "Scientific evidence in the Bible"
-          : "성경 속 과학적 증거"}
+        {t.chip2}
       </div>
       <div
         className="hero-chip"
@@ -109,7 +105,7 @@ export default function Hero() {
           true,
         )}
       >
-        {lang === "en" ? "Why learn the Bible?" : "왜 성경을 배우는가?"}
+        {t.chip3}
       </div>
 
       {/* Content */}
@@ -137,14 +133,13 @@ export default function Hero() {
               margin: "0 0 6px",
             }}
           >
-            {lang === "en" ? "Bible Seminar" : "성경강연회"}
+            {t.bibleSeminarLabel}
           </p>
           <p
             style={{
               fontFamily: "'DIN Pro', 'Barlow', 'Arial Narrow', sans-serif",
               fontSize: "clamp(1.6rem, 5vw, 2.6rem)",
               fontWeight: 500,
-              letterSpacing: "0.06em",
               color: "#fff",
               margin: 0,
               letterSpacing: "-0.02em",
@@ -163,7 +158,7 @@ export default function Hero() {
               letterSpacing: "-0.04em",
             }}
           >
-            {lang === "en" ? "Mon – Fri · 7:20 PM" : "월 – 금 · 오후 7:20"}
+            {t.eventTime}
           </p>
         </div>
 
@@ -179,22 +174,10 @@ export default function Hero() {
             letterSpacing: "-0.01em",
           }}
         >
-          {lang === "en" ? (
-            <>
-              We Invite You to the
-              <br />
-              <em style={{ color: "#a8c8f8" }}>Bible Seminar</em>
-              <br />
-              for Your Soul
-            </>
-          ) : (
-            <>
-              시카고침례교회
-              <br />
-              <em style={{ color: "#a8c8f8" }}>성경강연회</em>에<br />
-              당신을 초대합니다
-            </>
-          )}
+          {t.heroHeadlinePre}
+          <br />
+          <em style={{ color: "#a8c8f8" }}>{t.heroHeadlineEm}</em>
+          {lang === "kr" ? <><br />{t.heroHeadlinePost}</> : <><br />{t.heroHeadlinePost}</>}
         </h1>
 
         {/* Thin rule */}
@@ -232,7 +215,11 @@ export default function Hero() {
           }}
         >
           <a
-            href="#teach"
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("teach")?.scrollIntoView({ behavior: "smooth" });
+            }}
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -259,9 +246,8 @@ export default function Hero() {
             }}
           >
             {t.heroBtn1}
-            <span style={{ fontSize: "0.9rem" }}>↗</span>
+            <span style={{ fontSize: "0.9rem" }}>{"\u2197"}</span>
           </a>
-
         </div>
 
         {/* Sign-up form */}
@@ -287,7 +273,7 @@ export default function Hero() {
               textAlign: "center",
             }}
           >
-            {lang === "en" ? "Sign Up for Bible Seminar" : "성경강연회 등록"}
+            {t.signupTitle}
           </h3>
           <p
             style={{
@@ -298,14 +284,12 @@ export default function Hero() {
               textAlign: "center",
             }}
           >
-            {lang === "en"
-              ? "Register your attendance below"
-              : "아래에 참석 등록을 해주세요"}
+            {t.signupSubtitle}
           </p>
 
           {signupStatus === "success" ? (
             <div style={{ textAlign: "center", padding: "16px 0" }}>
-              <div style={{ fontSize: "2rem", marginBottom: "8px" }}>🕊</div>
+              <div style={{ fontSize: "2rem", marginBottom: "8px" }}>{"\ud83d\udd4a"}</div>
               <p
                 style={{
                   fontFamily: "'DNFForgedBlade', 'Hahmlet', Georgia, serif",
@@ -313,9 +297,7 @@ export default function Hero() {
                   color: "#fff",
                 }}
               >
-                {lang === "en"
-                  ? "You're signed up! We look forward to seeing you."
-                  : "등록되었습니다! 뵙기를 기대합니다."}
+                {t.signupSuccess}
               </p>
             </div>
           ) : (
@@ -342,12 +324,10 @@ export default function Hero() {
               style={{ display: "flex", flexDirection: "column", gap: "12px" }}
             >
               <div>
-                <label style={signupLabelSt}>
-                  {lang === "en" ? "Name *" : "이름 *"}
-                </label>
+                <label style={signupLabelSt}>{t.signupName}</label>
                 <input
                   type="text"
-                  placeholder={lang === "en" ? "Your name" : "이름"}
+                  placeholder={t.signupNamePlaceholder}
                   required
                   value={vals.name}
                   onChange={(e) => setVals({ ...vals, name: e.target.value })}
@@ -355,9 +335,7 @@ export default function Hero() {
                 />
               </div>
               <div>
-                <label style={signupLabelSt}>
-                  {lang === "en" ? "Email *" : "이메일 *"}
-                </label>
+                <label style={signupLabelSt}>{t.signupEmail}</label>
                 <input
                   type="email"
                   pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
@@ -369,9 +347,7 @@ export default function Hero() {
                 />
               </div>
               <div>
-                <label style={signupLabelSt}>
-                  {lang === "en" ? "Phone *" : "전화번호 *"}
-                </label>
+                <label style={signupLabelSt}>{t.signupPhone}</label>
                 <input
                   type="tel"
                   pattern="[\d\s\-\(\)\+]+"
@@ -391,9 +367,7 @@ export default function Hero() {
                     margin: 0,
                   }}
                 >
-                  {lang === "en"
-                    ? "Something went wrong. Please try again."
-                    : "오류가 발생했습니다. 다시 시도해 주세요."}
+                  {t.contactError}
                 </p>
               )}
               <button
@@ -422,13 +396,7 @@ export default function Hero() {
                   boxShadow: "0 4px 14px rgba(0,0,0,0.2)",
                 }}
               >
-                {signupStatus === "sending"
-                  ? lang === "en"
-                    ? "Sending..."
-                    : "전송 중..."
-                  : lang === "en"
-                    ? "Sign Up"
-                    : "등록하기"}
+                {signupStatus === "sending" ? t.signupSending : t.signupBtn}
               </button>
             </form>
           )}
@@ -443,7 +411,7 @@ export default function Hero() {
             animation: "bounce 2s ease infinite",
           }}
         >
-          ↓
+          {"\u2193"}
         </div>
       </div>
 

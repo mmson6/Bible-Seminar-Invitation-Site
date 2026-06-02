@@ -1,9 +1,17 @@
 import { useState, useEffect } from "react";
 import { useLang } from "../context/LangContext";
+import { text } from "../content";
 import doveLogo from "../assets/doveLogo.png";
 
+const LANGS = [
+  { key: "en", label: "English" },
+  { key: "kr", label: "\ud55c\uad6d\uc5b4" },
+  { key: "es", label: "Espa\u00f1ol" },
+];
+
 export default function Navbar() {
-  const { lang, toggle } = useLang();
+  const { lang, setLang } = useLang();
+  const t = text[lang];
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -13,20 +21,17 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const links =
-    lang === "en"
-      ? [
-          { label: "Gallery", href: "#gallery" },
-          { label: "What We Teach", href: "#teach" },
-          { label: "Find Us", href: "#map" },
-          { label: "Contact", href: "#contact" },
-        ]
-      : [
-          { label: "갤러리", href: "#gallery" },
-          { label: "성경강연회 순서", href: "#teach" },
-          { label: "오시는 길", href: "#map" },
-          { label: "문의", href: "#contact" },
-        ];
+  const scrollTo = (id) => {
+    setMenuOpen(false);
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const navLinks = [
+    { label: t.navTeach, id: "teach" },
+    { label: t.navMap, id: "map" },
+    { label: t.navContact, id: "contact" },
+  ];
 
   return (
     <nav
@@ -49,7 +54,11 @@ export default function Navbar() {
     >
       {/* Logo */}
       <a
-        href="#hero"
+        href="#"
+        onClick={(e) => {
+          e.preventDefault();
+          scrollTo("hero");
+        }}
         style={{
           color: scrolled ? "var(--navy)" : "#fff",
           textDecoration: "none",
@@ -63,7 +72,7 @@ export default function Navbar() {
       >
         <img
           src={doveLogo}
-          alt="SVBC Logo"
+          alt="JBCH Logo"
           style={{ height: "36px", width: "auto" }}
         />
         JESUS BAPTIST CHICAGO CHURCH
@@ -74,10 +83,14 @@ export default function Navbar() {
         style={{ display: "flex", alignItems: "center", gap: "32px" }}
         className="nav-desktop"
       >
-        {links.map((l) => (
+        {navLinks.map((l) => (
           <a
-            key={l.href}
-            href={l.href}
+            key={l.id}
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollTo(l.id);
+            }}
             style={{
               color: scrolled ? "var(--text-soft)" : "rgba(255,255,255,0.85)",
               textDecoration: "none",
@@ -99,26 +112,49 @@ export default function Navbar() {
           </a>
         ))}
 
-        <button
-          onClick={toggle}
-          style={{
-            background: scrolled ? "var(--chip-bg)" : "rgba(255,255,255,0.15)",
-            border: scrolled
-              ? "1px solid var(--chip-border)"
-              : "1px solid rgba(255,255,255,0.3)",
-            borderRadius: "20px",
-            color: scrolled ? "var(--blue)" : "#fff",
-            fontFamily: "'DM Sans', sans-serif",
-            fontSize: "0.8rem",
-            fontWeight: "600",
-            padding: "6px 18px",
-            cursor: "pointer",
-            transition: "all 0.25s",
-            letterSpacing: "0.04em",
-          }}
-        >
-          {lang === "en" ? "한국어" : "English"}
-        </button>
+        {/* Language selector */}
+        <div style={{ display: "flex", gap: "4px" }}>
+          {LANGS.map((l) => (
+            <button
+              key={l.key}
+              onClick={() => setLang(l.key)}
+              style={{
+                background:
+                  lang === l.key
+                    ? scrolled
+                      ? "var(--blue)"
+                      : "#fff"
+                    : scrolled
+                      ? "var(--chip-bg)"
+                      : "rgba(255,255,255,0.15)",
+                border:
+                  lang === l.key
+                    ? "1px solid transparent"
+                    : scrolled
+                      ? "1px solid var(--chip-border)"
+                      : "1px solid rgba(255,255,255,0.3)",
+                borderRadius: "20px",
+                color:
+                  lang === l.key
+                    ? scrolled
+                      ? "#fff"
+                      : "var(--blue)"
+                    : scrolled
+                      ? "var(--blue)"
+                      : "#fff",
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: "0.72rem",
+                fontWeight: "600",
+                padding: "5px 14px",
+                cursor: "pointer",
+                transition: "all 0.25s",
+                letterSpacing: "0.04em",
+              }}
+            >
+              {l.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Mobile hamburger */}
@@ -134,7 +170,7 @@ export default function Navbar() {
           cursor: "pointer",
         }}
       >
-        {menuOpen ? "✕" : "☰"}
+        {menuOpen ? "\u2715" : "\u2630"}
       </button>
 
       {menuOpen && (
@@ -153,11 +189,14 @@ export default function Navbar() {
             backdropFilter: "blur(16px)",
           }}
         >
-          {links.map((l) => (
+          {navLinks.map((l) => (
             <a
-              key={l.href}
-              href={l.href}
-              onClick={() => setMenuOpen(false)}
+              key={l.id}
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo(l.id);
+              }}
               style={{
                 color: "var(--text-soft)",
                 textDecoration: "none",
@@ -168,26 +207,41 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <button
-            onClick={() => {
-              toggle();
-              setMenuOpen(false);
-            }}
+          <div
             style={{
-              background: "var(--chip-bg)",
-              border: "1px solid var(--chip-border)",
-              borderRadius: "20px",
-              color: "var(--blue)",
-              fontFamily: "'DM Sans',sans-serif",
-              fontSize: "0.9rem",
-              fontWeight: "600",
-              padding: "8px 20px",
-              cursor: "pointer",
+              display: "flex",
+              gap: "6px",
+              flexWrap: "wrap",
               alignSelf: "flex-start",
             }}
           >
-            {lang === "en" ? "한국어" : "English"}
-          </button>
+            {LANGS.map((l) => (
+              <button
+                key={l.key}
+                onClick={() => {
+                  setLang(l.key);
+                  setMenuOpen(false);
+                }}
+                style={{
+                  background:
+                    lang === l.key ? "var(--blue)" : "var(--chip-bg)",
+                  border:
+                    lang === l.key
+                      ? "1px solid var(--blue)"
+                      : "1px solid var(--chip-border)",
+                  borderRadius: "20px",
+                  color: lang === l.key ? "#fff" : "var(--blue)",
+                  fontFamily: "'DM Sans',sans-serif",
+                  fontSize: "0.85rem",
+                  fontWeight: "600",
+                  padding: "7px 18px",
+                  cursor: "pointer",
+                }}
+              >
+                {l.label}
+              </button>
+            ))}
+          </div>
         </div>
       )}
 

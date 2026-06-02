@@ -5,8 +5,8 @@ import { useReveal } from "../hooks/useReveal";
 export default function MapSection() {
   const { lang } = useLang();
   const t = text[lang];
-  const leftRef = useReveal(); // ✅ separate ref for left column
-  const rightRef = useReveal(); // ✅ separate ref for right column
+  const leftRef = useReveal();
+  const rightRef = useReveal();
 
   return (
     <section
@@ -28,17 +28,10 @@ export default function MapSection() {
         >
           {/* Left: heading + info */}
           <div ref={leftRef} className="reveal-left">
-            <p style={labelSt}>Location</p>
+            <p style={labelSt}>{t.locationLabel}</p>
             <h2 style={headSt}>
-              {lang === "en" ? (
-                <>
-                  <em style={{ color: "var(--blue-mid)" }}>Find</em> Us
-                </>
-              ) : (
-                <>
-                  <em style={{ color: "var(--blue-mid)" }}>오시는</em> 길
-                </>
-              )}
+              <em style={{ color: "var(--blue-mid)" }}>{t.findHeadingEm}</em>{" "}
+              {t.findHeadingRest}
             </h2>
             <div
               style={{
@@ -60,19 +53,19 @@ export default function MapSection() {
             >
               {[
                 {
-                  icon: "📍",
-                  label: lang === "en" ? "Address" : "주소",
+                  icon: "\ud83d\udccd",
+                  label: t.addressLabel,
                   value: t.mapAddress,
                 },
                 {
-                  icon: "📞",
-                  label: lang === "en" ? "Phone" : "전화",
+                  icon: "\ud83d\udcde",
+                  label: t.phoneLabel,
                   value: t.phone,
                   href: "tel:+17578499500",
                 },
                 {
-                  icon: "✉",
-                  label: lang === "en" ? "Email" : "이메일",
+                  icon: "\u2709",
+                  label: t.emailLabel,
                   value: t.email,
                   href: "mailto:jbchsva@gmail.com",
                 },
@@ -171,11 +164,11 @@ export default function MapSection() {
                   "0 4px 16px rgba(26,93,200,0.3)";
               }}
             >
-              🗺 {t.mapBtn} ↗
+              {"\ud83d\uddfa"} {t.mapBtn} {"\u2197"}
             </a>
           </div>
 
-          {/* Right: map image — ✅ fixed: style is a prop, not a child */}
+          {/* Right: map image */}
           <div
             ref={rightRef}
             className="reveal-right"
@@ -209,7 +202,7 @@ export default function MapSection() {
                 color: "var(--blue-mid)",
               }}
             >
-              <span style={{ fontSize: "3rem" }}>📍</span>
+              <span style={{ fontSize: "3rem" }}>{"\ud83d\udccd"}</span>
               <p
                 style={{
                   fontFamily: "'DM Sans',sans-serif",
@@ -219,9 +212,7 @@ export default function MapSection() {
                   letterSpacing: "0.08em",
                 }}
               >
-                {lang === "en"
-                  ? "Replace with church-map.jpg"
-                  : "church-map.jpg 파일로 교체하세요"}
+                {t.mapFallback}
               </p>
             </div>
           </div>
