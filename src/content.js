@@ -231,9 +231,9 @@ export const text = {
   },
 
   es: {
-    churchName: "Iglesia Bautista de Chicago Jes\u00fas",
+    churchName: "Jesus Baptist Chicago Church",
     tagline: "Te Invitamos al Seminario B\u00edblico para Tu Alma",
-    heroIntro: "\u00a1Bienvenido a la Iglesia Bautista de Chicago Jes\u00fas!",
+    heroIntro: "\u00a1Bienvenido a Jesus Baptist Chicago Church!",
     heroBtn1: "Lo Que Ense\u00f1amos",
 
     mapAddress: "575 Rush St, Roselle, IL 60172",
@@ -324,7 +324,7 @@ export const text = {
     msgPlaceholder: "\u00bfC\u00f3mo podemos ayudarle?",
     sending: "Enviando...",
     footerText:
-      "\u00a9 2026 Iglesia Bautista de Chicago Jes\u00fas \u00b7 LIFE WORD MISSION USA",
+      "\u00a9 2026 Jesus Baptist Chicago Church \u00b7 LIFE WORD MISSION USA",
 
     // Map
     locationLabel: "Ubicaci\u00f3n",
