@@ -28,7 +28,7 @@ export default function WhatWeTeach() {
     <section
       id="teach"
       style={{
-        background: "var(--cream)",
+        background: "var(--white)",
         padding: "110px 40px",
       }}
     >

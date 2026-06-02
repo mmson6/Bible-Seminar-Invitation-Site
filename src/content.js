@@ -1,8 +1,8 @@
 export const text = {
   en: {
-    churchName: "Southern Virginia Baptist Church",
+    churchName: "Jesus Baptist Chicago Church",
     tagline: "We Invite You to the Bible Seminar for Your Soul",
-    heroIntro: "Welcome to Southern Virginia Baptist Church!",
+    heroIntro: "Welcome to Jesus Baptist Chicago Church!",
     heroBtn1: "What We Teach",
     heroBtn2: "YouTube Channel",
 
@@ -16,7 +16,7 @@ export const text = {
     galleryYoutube: "Watch on YouTube",
 
     mapTitle: "Find Us",
-    mapAddress: "13246 Warwick Blvd, Newport News, VA 23602",
+    mapAddress: "575 Rush St, Roselle, IL 60172",
     mapBtn: "Open in Google Maps",
 
     teachTitle: "What We Teach",
@@ -68,7 +68,7 @@ export const text = {
   },
 
   kr: {
-    churchName: "남버지니아침례교회",
+    churchName: "시카고침례교회",
     tagline: "당신의 영혼을 위한 성경강연회에 초대합니다",
     heroIntro: "진리를 알지니 진리가 너희를 자유케 하리라 [요한복음 8:32]",
     heroBtn1: "성경강연회 순서",
@@ -84,7 +84,7 @@ export const text = {
     galleryYoutube: "유튜브에서 보기",
 
     mapTitle: "오시는 길",
-    mapAddress: "13246 Warwick Blvd, Newport News, VA 23602",
+    mapAddress: "575 Rush St, Roselle, IL 60172",
     mapBtn: "구글 지도로 열기",
 
     teachTitle: "성경강연회 순서",

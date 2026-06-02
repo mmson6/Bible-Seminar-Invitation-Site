@@ -66,9 +66,7 @@ export default function Navbar() {
           alt="SVBC Logo"
           style={{ height: "36px", width: "auto" }}
         />
-        {lang === "en"
-          ? "SOUTHERN VIRGINIA BAPTIST CHURCH"
-          : "SOUTHERN VIRGINIA BAPTIST CHURCH"}
+        JESUS BAPTIST CHICAGO CHURCH
       </a>
 
       {/* Desktop links */}

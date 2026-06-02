@@ -146,7 +146,7 @@ export default function Hero() {
               lineHeight: 1,
             }}
           >
-            03.10 – 03.15.2026,
+            06.15 – 06.19.2026,
           </p>
           <p
             style={{
@@ -158,7 +158,7 @@ export default function Hero() {
               letterSpacing: "-0.04em",
             }}
           >
-            {lang === "en" ? "Mon – Sat · 7:00 PM" : "월 – 토 · 오후 7:00"}
+            {lang === "en" ? "Mon – Fri · 7:20 PM" : "월 – 금 · 오후 7:20"}
           </p>
         </div>
 
@@ -184,7 +184,7 @@ export default function Hero() {
             </>
           ) : (
             <>
-              남버지니아침례교회
+              시카고침례교회
               <br />
               <em style={{ color: "#a8c8f8" }}>성경강연회</em>에<br />
               당신을 초대합니다
@@ -257,101 +257,8 @@ export default function Hero() {
             <span style={{ fontSize: "0.9rem" }}>↗</span>
           </a>
 
-          <a
-            href="https://www.youtube.com/@jbchsva"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              background: "rgba(255,255,255,0.12)",
-              color: "#fff",
-              textDecoration: "none",
-              padding: "13px 32px",
-              borderRadius: "40px",
-              fontFamily: "'DM Sans', sans-serif",
-              fontWeight: 600,
-              fontSize: "0.88rem",
-              letterSpacing: "0.06em",
-              border: "1px solid rgba(255,255,255,0.25)",
-              transition: "all 0.25s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgba(255,255,255,0.2)";
-              e.currentTarget.style.transform = "translateY(-3px)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "rgba(255,255,255,0.12)";
-              e.currentTarget.style.transform = "";
-            }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-            </svg>
-            {t.heroBtn2}
-          </a>
         </div>
 
-        {/* YouTube video preview */}
-        <div
-          style={{
-            maxWidth: "680px",
-            margin: "0 auto",
-            borderRadius: "16px",
-            overflow: "hidden",
-            boxShadow: "0 24px 64px rgba(0,0,0,0.4)",
-            border: "1px solid rgba(255,255,255,0.15)",
-          }}
-        >
-          <div
-            style={{
-              position: "relative",
-              paddingBottom: "56.25%",
-              height: 0,
-              background: "#000",
-            }}
-          >
-            <iframe
-              src="https://www.youtube.com/embed/533-II9cXVA?rel=0"
-              title="Bible Seminar Preview"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                border: "none",
-              }}
-            />
-          </div>
-          <div
-            style={{
-              background: "rgba(0,0,0,0.5)",
-              backdropFilter: "blur(8px)",
-              padding: "10px 16px",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-            }}
-          >
-            <span style={{ color: "#ff4444", fontSize: "0.75rem" }}>▶</span>
-            <span
-              style={{
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: "0.78rem",
-                color: "rgba(255,255,255,0.7)",
-                letterSpacing: "0.06em",
-              }}
-            >
-              {lang === "en"
-                ? "Last Bible Seminar — Watch video"
-                : "지난 성경강연회 영상 보기"}
-            </span>
-          </div>
-        </div>
 
         {/* Scroll cue */}
         <div

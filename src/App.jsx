@@ -8,7 +8,7 @@ export default function App() {
     <LangProvider>
       <HashRouter>
         <Routes>
-          <Route path="/" element={<Envelope />} />
+          <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>

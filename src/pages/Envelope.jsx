@@ -45,8 +45,8 @@ export default function Envelope() {
               <div className="letter-divider" />
               <p className="letter-church">
                 {lang === "en"
-                  ? "Southern Virginia\nBaptist Church"
-                  : "남버지니아\n침례교회"}
+                  ? "Jesus Baptist\nChicago Church"
+                  : "시카고\n침례교회"}
               </p>
               <div className="letter-divider" />
               <p className="letter-invite">

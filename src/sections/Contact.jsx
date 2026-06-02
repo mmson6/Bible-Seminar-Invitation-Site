@@ -38,7 +38,7 @@ export default function Contact() {
     <section
       id="contact"
       style={{
-        background: "var(--cream)",
+        background: "var(--white)",
         padding: "110px 40px 72px",
       }}
     >
@@ -99,8 +99,8 @@ export default function Contact() {
                 label: lang === "en" ? "Church" : "교회",
                 value:
                   lang === "en"
-                    ? "Southern Virginia Baptist Church"
-                    : "남버지니아침례교회",
+                    ? "Jesus Baptist Chicago Church"
+                    : "시카고침례교회",
               },
               {
                 icon: "📞",
@@ -371,8 +371,8 @@ export default function Contact() {
         >
           🕊 &nbsp;
           {lang === "en"
-            ? "© 2026 Southern Virginia Baptist Church · LIFE WORD MISSION USA"
-            : "© 2026 남버지니아침례교회 · 미주생명의말씀선교회"}
+            ? "© 2026 Jesus Baptist Chicago Church · LIFE WORD MISSION USA"
+            : "© 2026 시카고침례교회 · 미주생명의말씀선교회"}
         </div>
       </div>
 

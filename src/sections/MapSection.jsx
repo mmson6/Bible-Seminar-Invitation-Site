@@ -12,7 +12,7 @@ export default function MapSection() {
     <section
       id="map"
       style={{
-        background: "var(--white)",
+        background: "var(--cream)",
         padding: "110px 40px",
       }}
     >
@@ -141,7 +141,7 @@ export default function MapSection() {
             </div>
 
             <a
-              href="https://maps.google.com/?q=13246+Warwick+Blvd,+Newport+News,+VA+23602"
+              href="https://maps.google.com/?q=575+Rush+St,+Roselle,+IL+60172"
               target="_blank"
               rel="noopener noreferrer"
               style={{
