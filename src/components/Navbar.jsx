@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLang } from "../context/LangContext";
 import { text } from "../content";
 import doveLogo from "../assets/doveLogo.png";
@@ -14,11 +14,26 @@ export default function Navbar() {
   const t = text[lang];
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef(null);
+
+  const currentLang = LANGS.find((l) => l.key === lang) || LANGS[0];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClick = (e) => {
+      if (langRef.current && !langRef.current.contains(e.target)) {
+        setLangOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
   const scrollTo = (id) => {
@@ -112,48 +127,81 @@ export default function Navbar() {
           </a>
         ))}
 
-        {/* Language selector */}
-        <div style={{ display: "flex", gap: "4px" }}>
-          {LANGS.map((l) => (
-            <button
-              key={l.key}
-              onClick={() => setLang(l.key)}
+        {/* Language dropdown */}
+        <div ref={langRef} style={{ position: "relative" }}>
+          <button
+            onClick={() => setLangOpen(!langOpen)}
+            style={{
+              background: scrolled ? "var(--chip-bg)" : "rgba(255,255,255,0.15)",
+              border: scrolled
+                ? "1px solid var(--chip-border)"
+                : "1px solid rgba(255,255,255,0.3)",
+              borderRadius: "20px",
+              color: scrolled ? "var(--blue)" : "#fff",
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: "0.8rem",
+              fontWeight: "600",
+              padding: "6px 18px",
+              cursor: "pointer",
+              transition: "all 0.25s",
+              letterSpacing: "0.04em",
+              display: "flex",
+              alignItems: "center",
+              gap: "6px",
+            }}
+          >
+            {currentLang.label}
+            <span style={{ fontSize: "0.6rem" }}>{langOpen ? "\u25b2" : "\u25bc"}</span>
+          </button>
+          {langOpen && (
+            <div
               style={{
-                background:
-                  lang === l.key
-                    ? scrolled
-                      ? "var(--blue)"
-                      : "#fff"
-                    : scrolled
-                      ? "var(--chip-bg)"
-                      : "rgba(255,255,255,0.15)",
-                border:
-                  lang === l.key
-                    ? "1px solid transparent"
-                    : scrolled
-                      ? "1px solid var(--chip-border)"
-                      : "1px solid rgba(255,255,255,0.3)",
-                borderRadius: "20px",
-                color:
-                  lang === l.key
-                    ? scrolled
-                      ? "#fff"
-                      : "var(--blue)"
-                    : scrolled
-                      ? "var(--blue)"
-                      : "#fff",
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: "0.72rem",
-                fontWeight: "600",
-                padding: "5px 14px",
-                cursor: "pointer",
-                transition: "all 0.25s",
-                letterSpacing: "0.04em",
+                position: "absolute",
+                top: "calc(100% + 8px)",
+                right: 0,
+                background: "rgba(255,255,255,0.98)",
+                backdropFilter: "blur(16px)",
+                borderRadius: "12px",
+                border: "1px solid var(--border)",
+                boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
+                overflow: "hidden",
+                minWidth: "140px",
+                zIndex: 200,
               }}
             >
-              {l.label}
-            </button>
-          ))}
+              {LANGS.map((l) => (
+                <button
+                  key={l.key}
+                  onClick={() => {
+                    setLang(l.key);
+                    setLangOpen(false);
+                  }}
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    textAlign: "left",
+                    background: lang === l.key ? "var(--blue-light, #e8f0fe)" : "transparent",
+                    border: "none",
+                    padding: "10px 18px",
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontSize: "0.85rem",
+                    fontWeight: lang === l.key ? "700" : "500",
+                    color: lang === l.key ? "var(--blue)" : "var(--text-soft)",
+                    cursor: "pointer",
+                    transition: "background 0.15s",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (lang !== l.key) e.target.style.background = "#f5f7fa";
+                  }}
+                  onMouseLeave={(e) => {
+                    if (lang !== l.key) e.target.style.background = "transparent";
+                  }}
+                >
+                  {l.label}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
@@ -207,41 +255,32 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <div
+          <select
+            value={lang}
+            onChange={(e) => {
+              setLang(e.target.value);
+              setMenuOpen(false);
+            }}
             style={{
-              display: "flex",
-              gap: "6px",
-              flexWrap: "wrap",
+              background: "var(--chip-bg)",
+              border: "1px solid var(--chip-border)",
+              borderRadius: "20px",
+              color: "var(--blue)",
+              fontFamily: "'DM Sans',sans-serif",
+              fontSize: "0.85rem",
+              fontWeight: "600",
+              padding: "8px 18px",
+              cursor: "pointer",
               alignSelf: "flex-start",
+              outline: "none",
             }}
           >
             {LANGS.map((l) => (
-              <button
-                key={l.key}
-                onClick={() => {
-                  setLang(l.key);
-                  setMenuOpen(false);
-                }}
-                style={{
-                  background:
-                    lang === l.key ? "var(--blue)" : "var(--chip-bg)",
-                  border:
-                    lang === l.key
-                      ? "1px solid var(--blue)"
-                      : "1px solid var(--chip-border)",
-                  borderRadius: "20px",
-                  color: lang === l.key ? "#fff" : "var(--blue)",
-                  fontFamily: "'DM Sans',sans-serif",
-                  fontSize: "0.85rem",
-                  fontWeight: "600",
-                  padding: "7px 18px",
-                  cursor: "pointer",
-                }}
-              >
+              <option key={l.key} value={l.key}>
                 {l.label}
-              </button>
+              </option>
             ))}
-          </div>
+          </select>
         </div>
       )}
 
