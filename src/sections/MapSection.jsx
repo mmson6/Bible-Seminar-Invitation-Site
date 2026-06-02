@@ -53,6 +53,11 @@ export default function MapSection() {
             >
               {[
                 {
+                  icon: "\ud83d\udd4a",
+                  label: t.churchLabel,
+                  value: t.churchName,
+                },
+                {
                   icon: "\ud83d\udccd",
                   label: t.addressLabel,
                   value: t.mapAddress,
