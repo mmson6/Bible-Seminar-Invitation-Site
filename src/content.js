@@ -50,7 +50,8 @@ export const text = {
     contactSend: "Send Message",
     contactSuccess: "Message sent! We will get back to you soon.",
     contactError: "Something went wrong. Please try again.",
-    phone: "(757) 849-9500",
+    phone: "(847) 942-1411",
+    phoneHref: "tel:+18479421411",
     email: "jbchsva@gmail.com",
 
     // Hero
@@ -166,7 +167,8 @@ export const text = {
       "\uba54\uc2dc\uc9c0\uac00 \uc804\uc1a1\ub418\uc5c8\uc2b5\ub2c8\ub2e4! \uace7 \uc5f0\ub77d\ub4dc\ub9ac\uaca0\uc2b5\ub2c8\ub2e4.",
     contactError:
       "\uc624\ub958\uac00 \ubc1c\uc0dd\ud588\uc2b5\ub2c8\ub2e4. \ub2e4\uc2dc \uc2dc\ub3c4\ud574 \uc8fc\uc138\uc694.",
-    phone: "(757) 849-9500",
+    phone: "(210) 403-4655",
+    phoneHref: "tel:+12104034655",
     email: "jbchsva@gmail.com",
 
     // Hero
@@ -282,7 +284,8 @@ export const text = {
     contactSuccess:
       "\u00a1Mensaje enviado! Nos pondremos en contacto pronto.",
     contactError: "Algo sali\u00f3 mal. Por favor, int\u00e9ntelo de nuevo.",
-    phone: "(757) 849-9500",
+    phone: "(618) 977-2661",
+    phoneHref: "tel:+16189772661",
     email: "jbchsva@gmail.com",
 
     // Hero

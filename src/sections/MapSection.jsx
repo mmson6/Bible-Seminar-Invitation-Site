@@ -57,18 +57,6 @@ export default function MapSection() {
                   label: t.addressLabel,
                   value: t.mapAddress,
                 },
-                {
-                  icon: "\ud83d\udcde",
-                  label: t.phoneLabel,
-                  value: t.phone,
-                  href: "tel:+17578499500",
-                },
-                {
-                  icon: "\u2709",
-                  label: t.emailLabel,
-                  value: t.email,
-                  href: "mailto:jbchsva@gmail.com",
-                },
               ].map(({ icon, label, value, href }) => (
                 <div
                   key={label}

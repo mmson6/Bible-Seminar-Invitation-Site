@@ -56,7 +56,7 @@ export default function Contact() {
                 icon: "\ud83d\udcde",
                 label: t.phoneLabel,
                 value: t.phone,
-                href: "tel:+17578499500",
+                href: t.phoneHref,
               },
               {
                 icon: "\u2709",
