@@ -312,8 +312,8 @@ export const text = {
 
     // Contact
     getInTouch: "Cont\u00e1ctenos",
-    contactHeadingEm: "Cont\u00e1c",
-    contactHeadingRest: "tenos",
+    contactHeadingEm: "Cont\u00e1cte",
+    contactHeadingRest: "nos",
     contactIntro:
       "Env\u00edenos un correo si tiene preguntas o desea comunicarse con nosotros",
     churchLabel: "Iglesia",
@@ -328,8 +328,8 @@ export const text = {
 
     // Map
     locationLabel: "Ubicaci\u00f3n",
-    findHeadingEm: "Enc",
-    findHeadingRest: "u\u00e9ntranos",
+    findHeadingEm: "Nuestra",
+    findHeadingRest: "Ubicaci\u00f3n",
     addressLabel: "Direcci\u00f3n",
     mapFallback: "Reemplazar con chi-church-map.jpg",
 
