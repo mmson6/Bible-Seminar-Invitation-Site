@@ -361,7 +361,7 @@ export default function Hero() {
                 <input
                   type="email"
                   pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
-                  placeholder={lang === "en" ? "your@email.com" : "이메일 주소"}
+                  placeholder="your@email.com"
                   required
                   value={vals.email}
                   onChange={(e) => setVals({ ...vals, email: e.target.value })}
@@ -375,11 +375,7 @@ export default function Hero() {
                 <input
                   type="tel"
                   pattern="[\d\s\-\(\)\+]+"
-                  placeholder={
-                    lang === "en"
-                      ? "(000) 000-0000"
-                      : "전화번호"
-                  }
+                  placeholder="(000) 000-0000"
                   required
                   value={vals.phone}
                   onChange={(e) => setVals({ ...vals, phone: e.target.value })}
