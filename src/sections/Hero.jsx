@@ -296,13 +296,15 @@ export default function Hero() {
           </p>
 
           {signupStatus === "success" ? (
-            <div style={{ textAlign: "center", padding: "16px 0" }}>
-              <div style={{ fontSize: "2rem", marginBottom: "8px" }}>{"\ud83d\udd4a"}</div>
+            <div style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: "280px" }}>
+              <div style={{ fontSize: "2.5rem", marginBottom: "16px" }}>{"\ud83d\udd4a"}</div>
               <p
                 style={{
                   fontFamily: "'DNFForgedBlade', 'Hahmlet', Georgia, serif",
-                  fontSize: "1.1rem",
+                  fontSize: "1.2rem",
                   color: "#fff",
+                  lineHeight: 1.6,
+                  maxWidth: "320px",
                 }}
               >
                 {t.signupSuccess}
