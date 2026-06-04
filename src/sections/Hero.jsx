@@ -1,11 +1,12 @@
-import { useState, useRef } from "react";
-import emailjs from "@emailjs/browser";
+import { useState } from "react";
 import { useLang } from "../context/LangContext";
 import { text } from "../content";
 
+const GHL_WEBHOOK =
+  "https://services.leadconnectorhq.com/hooks/Fjc9HrLy1iQ3TCPMb4f4/webhook-trigger/10275de5-0f24-42ea-8e4f-99a555ee3959";
+
 export default function Hero() {
   const { lang } = useLang();
-  const formRef = useRef();
   const [signupStatus, setSignupStatus] = useState(null);
   const [vals, setVals] = useState({ name: "", email: "", phone: "" });
   const t = text[lang];
@@ -302,23 +303,25 @@ export default function Hero() {
             </div>
           ) : (
             <form
-              ref={formRef}
               onSubmit={(e) => {
                 e.preventDefault();
                 if (!vals.name || !vals.email || !vals.phone) return;
                 setSignupStatus("sending");
-                emailjs
-                  .send(
-                    import.meta.env.VITE_EMAILJS_SERVICE,
-                    import.meta.env.VITE_EMAILJS_TEMPLATE,
-                    {
-                      user_name: vals.name,
-                      user_email: vals.email,
-                      message: `[Bible Seminar Sign-up] ${vals.name} / Phone: ${vals.phone}`,
-                    },
-                    import.meta.env.VITE_EMAILJS_KEY,
-                  )
-                  .then(() => setSignupStatus("success"))
+                fetch(GHL_WEBHOOK, {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({
+                    name: vals.name,
+                    email: vals.email,
+                    phone: vals.phone,
+                    language: lang === "kr" ? "ko" : lang,
+                    source: "bible-seminar-signup",
+                  }),
+                })
+                  .then((res) => {
+                    if (res.ok) setSignupStatus("success");
+                    else setSignupStatus("error");
+                  })
                   .catch(() => setSignupStatus("error"));
               }}
               style={{ display: "flex", flexDirection: "column", gap: "20px" }}
