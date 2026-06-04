@@ -5,6 +5,13 @@ import { text } from "../content";
 const GHL_WEBHOOK =
   "https://services.leadconnectorhq.com/hooks/Fjc9HrLy1iQ3TCPMb4f4/webhook-trigger/10275de5-0f24-42ea-8e4f-99a555ee3959";
 
+function normalizePhone(raw) {
+  const digits = raw.replace(/\D/g, "");
+  if (digits.startsWith("1") && digits.length === 11) return "+" + digits;
+  if (digits.length === 10) return "+1" + digits;
+  return "+" + digits;
+}
+
 export default function Hero() {
   const { lang } = useLang();
   const [signupStatus, setSignupStatus] = useState(null);
@@ -313,7 +320,7 @@ export default function Hero() {
                   body: JSON.stringify({
                     name: vals.name,
                     email: vals.email,
-                    phone: vals.phone,
+                    phone: normalizePhone(vals.phone),
                     language: lang === "kr" ? "ko" : lang,
                     source: "bible-seminar-signup",
                   }),
