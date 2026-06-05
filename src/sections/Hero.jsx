@@ -2,8 +2,11 @@ import { useState } from "react";
 import { useLang } from "../context/LangContext";
 import { text } from "../content";
 
-const GHL_WEBHOOK =
-  "https://services.leadconnectorhq.com/hooks/Fjc9HrLy1iQ3TCPMb4f4/webhook-trigger/10275de5-0f24-42ea-8e4f-99a555ee3959";
+const GHL_WEBHOOKS = {
+  en: "https://services.leadconnectorhq.com/hooks/Fjc9HrLy1iQ3TCPMb4f4/webhook-trigger/10275de5-0f24-42ea-8e4f-99a555ee3959",
+  kr: "https://services.leadconnectorhq.com/hooks/Fjc9HrLy1iQ3TCPMb4f4/webhook-trigger/10275de5-0f24-42ea-8e4f-99a555ee3959",
+  es: "https://services.leadconnectorhq.com/hooks/Fjc9HrLy1iQ3TCPMb4f4/webhook-trigger/MBKzc5g0oXsjUZPJj72p",
+};
 
 function normalizePhone(raw) {
   const digits = raw.replace(/\D/g, "");
@@ -316,7 +319,7 @@ export default function Hero() {
                 e.preventDefault();
                 if (!vals.name || !vals.email || !vals.phone) return;
                 setSignupStatus("sending");
-                fetch(GHL_WEBHOOK, {
+                fetch(GHL_WEBHOOKS[lang] || GHL_WEBHOOKS.en, {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
                   body: JSON.stringify({
