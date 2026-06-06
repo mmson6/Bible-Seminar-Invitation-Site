@@ -62,7 +62,7 @@ export default function Contact() {
                 icon: "\u2709",
                 label: t.emailLabel,
                 value: t.email,
-                href: "mailto:jbchsva@gmail.com",
+                href: "mailto:jbchchi@jbchusa.org",
               },
             ].map(({ icon, label, value, href }) => (
               <div

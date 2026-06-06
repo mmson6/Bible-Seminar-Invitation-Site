@@ -52,7 +52,7 @@ export const text = {
     contactError: "Something went wrong. Please try again.",
     phone: "(847) 942-1411",
     phoneHref: "tel:+18479421411",
-    email: "jbchsva@gmail.com",
+    email: "jbchchi@jbchusa.org",
 
     // Hero
     bibleSeminarLabel: "Bible Seminar",
@@ -169,7 +169,7 @@ export const text = {
       "\uc624\ub958\uac00 \ubc1c\uc0dd\ud588\uc2b5\ub2c8\ub2e4. \ub2e4\uc2dc \uc2dc\ub3c4\ud574 \uc8fc\uc138\uc694.",
     phone: "(210) 403-4655",
     phoneHref: "tel:+12104034655",
-    email: "jbchsva@gmail.com",
+    email: "jbchchi@jbchusa.org",
 
     // Hero
     bibleSeminarLabel: "\uc131\uacbd\uac15\uc5f0\ud68c",
@@ -187,7 +187,7 @@ export const text = {
     signupSubtitle:
       "\uc544\ub798\uc5d0 \ucc38\uc11d \ub4f1\ub85d\uc744 \ud574\uc8fc\uc138\uc694",
     signupSuccess:
-      "\ub4f1\ub85d\ub418\uc5c8\uc2b5\ub2c8\ub2e4! \ubf59\uae30\ub97c \uae30\ub300\ud569\ub2c8\ub2e4.",
+      "\ub4f1\ub85d\ub418\uc5c8\uc2b5\ub2c8\ub2e4! \uace7 \ubf59\uae30\ub97c \uae30\ub300\ud569\ub2c8\ub2e4.",
     signupName: "\uc774\ub984 *",
     signupEmail: "\uc774\uba54\uc77c *",
     signupPhone: "\uc804\ud654\ubc88\ud638 *",
@@ -234,7 +234,7 @@ export const text = {
 
   es: {
     churchName: "Jesus Baptist Chicago Church",
-    tagline: "Te Invitamos al Seminario B\u00edblico para Tu Alma",
+    tagline: "Le Invitamos al Seminario de la Biblia para Su Alma",
     heroIntro: "\u00a1Bienvenido a Jesus Baptist Chicago Church!",
     heroBtn1: "Lo Que Ense\u00f1amos",
 
@@ -258,7 +258,7 @@ export const text = {
       {
         day: "D\u00eda 3",
         title: "Israel, el Testigo de Dios",
-        desc: "Trace la historia de Israel como un testimonio vivo del poder y la soberan\u00eda de Dios a trav\u00e9s de los siglos.",
+        desc: "Recorre la historia de Israel como un testimonio vivo del poder y la soberan\u00eda de Dios a trav\u00e9s de los siglos.",
       },
       {
         day: "D\u00eda 3-4",
@@ -286,7 +286,7 @@ export const text = {
     contactError: "Algo sali\u00f3 mal. Por favor, int\u00e9ntelo de nuevo.",
     phone: "(618) 977-2661",
     phoneHref: "tel:+16189772661",
-    email: "jbchsva@gmail.com",
+    email: "jbchchi@jbchusa.org",
 
     // Hero
     bibleSeminarLabel: "Seminario B\u00edblico",
@@ -294,13 +294,13 @@ export const text = {
     chip1: "\u00bfQu\u00e9 hay despu\u00e9s de la muerte?",
     chip2: "Evidencia cient\u00edfica en la Biblia",
     chip3: "\u00bfPor qu\u00e9 aprender la Biblia?",
-    heroHeadlinePre: "Te Invitamos al",
-    heroHeadlineEm: "Seminario B\u00edblico",
-    heroHeadlinePost: "para Tu Alma",
+    heroHeadlinePre: "Le Invitamos al",
+    heroHeadlineEm: "Seminario de la Biblia",
+    heroHeadlinePost: "para Su Alma",
     signupTitle: "Reg\u00edstrate para el Seminario B\u00edblico",
     signupSubtitle: "Registra tu asistencia a continuaci\u00f3n",
     signupSuccess:
-      "\u00a1Est\u00e1s registrado! Esperamos verte pronto.",
+      "\u00a1Est\u00e1 registrado! Esperamos verle pronto.",
     signupName: "Nombre *",
     signupEmail: "Correo *",
     signupPhone: "Tel\u00e9fono *",
@@ -310,13 +310,13 @@ export const text = {
 
     // Navbar
     navTeach: "Lo Que Ense\u00f1amos",
-    navMap: "Ubicaci\u00f3n",
+    navMap: "Direcci\u00f3n",
     navContact: "Contacto",
 
     // Contact
-    getInTouch: "Cont\u00e1ctenos",
-    contactHeadingEm: "Cont\u00e1cte",
-    contactHeadingRest: "nos",
+    getInTouch: "con\u00e9ctese",
+    contactHeadingEm: "Cont\u00e1ctenos",
+    contactHeadingRest: "",
     contactIntro:
       "Env\u00edenos un correo si tiene preguntas o desea comunicarse con nosotros",
     churchLabel: "Iglesia",
@@ -330,9 +330,9 @@ export const text = {
       "\u00a9 2026 Jesus Baptist Chicago Church \u00b7 LIFE WORD MISSION USA",
 
     // Map
-    locationLabel: "Ubicaci\u00f3n",
+    locationLabel: "Direcci\u00f3n",
     findHeadingEm: "Nuestra",
-    findHeadingRest: "Ubicaci\u00f3n",
+    findHeadingRest: "Direcci\u00f3n",
     addressLabel: "Direcci\u00f3n",
     mapFallback: "Reemplazar con chi-church-map.jpg",
 
