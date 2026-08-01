@@ -143,8 +143,8 @@ export default function WhatWeTeach() {
                         }}
                       />
 
-                      {/* Day badge */}
-                      <div
+                      {/* Day badge — temporarily hidden; uncomment to restore */}
+                      {/* <div
                         style={{
                           position: "absolute",
                           top: "12px",
@@ -161,7 +161,7 @@ export default function WhatWeTeach() {
                         }}
                       >
                         {d.day}
-                      </div>
+                      </div> */}
                     </div>
 
                     {/* Text */}
@@ -190,6 +190,51 @@ export default function WhatWeTeach() {
                       >
                         {d.desc}
                       </p>
+                      {d.bullets && (
+                        <div
+                          style={{
+                            marginTop: "12px",
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "8px",
+                          }}
+                        >
+                          {d.bullets.map((b, j) => (
+                            <div
+                              key={j}
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "12px",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  width: "2.5px",
+                                  height: "20px",
+                                  flexShrink: 0,
+                                  background: "rgba(26,93,200,0.25)",
+                                  borderRadius: "1px",
+                                }}
+                              />
+                              <p
+                                style={{
+                                  fontFamily: "'DM Sans',sans-serif",
+                                  fontSize: "0.82rem",
+                                  color: "var(--navy)",
+                                  lineHeight: 1.55,
+                                  margin: 0,
+                                  fontStyle: "italic",
+                                  fontWeight: 500,
+                                  opacity: 0.8,
+                                }}
+                              >
+                                {b}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>

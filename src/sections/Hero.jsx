@@ -3,9 +3,9 @@ import { useLang } from "../context/LangContext";
 import { text } from "../content";
 
 const GHL_WEBHOOKS = {
-  en: "https://services.leadconnectorhq.com/hooks/Fjc9HrLy1iQ3TCPMb4f4/webhook-trigger/10275de5-0f24-42ea-8e4f-99a555ee3959",
-  kr: "https://services.leadconnectorhq.com/hooks/Fjc9HrLy1iQ3TCPMb4f4/webhook-trigger/10275de5-0f24-42ea-8e4f-99a555ee3959",
-  es: "https://services.leadconnectorhq.com/hooks/Fjc9HrLy1iQ3TCPMb4f4/webhook-trigger/MBKzc5g0oXsjUZPJj72p",
+  en: "https://services.leadconnectorhq.com/hooks/Fjc9HrLy1iQ3TCPMb4f4/webhook-trigger/w2TG4zg8SRs48ZOjtKQo",
+  kr: "https://services.leadconnectorhq.com/hooks/Fjc9HrLy1iQ3TCPMb4f4/webhook-trigger/UuDS4hbZiiseLBqods7l",
+  es: "https://services.leadconnectorhq.com/hooks/Fjc9HrLy1iQ3TCPMb4f4/webhook-trigger/T5oCs4RN2M7ZJyfoQtrp",
 };
 
 function normalizePhone(raw) {
@@ -157,7 +157,7 @@ export default function Hero() {
               lineHeight: 1,
             }}
           >
-            06.15 – 06.19.2026,
+            07.13 – 07.16.2026,
           </p>
           <p
             style={{
@@ -331,8 +331,15 @@ export default function Hero() {
                   }),
                 })
                   .then((res) => {
-                    if (res.ok) setSignupStatus("success");
-                    else setSignupStatus("error");
+                    if (res.ok) {
+                      setSignupStatus("success");
+                      if (typeof fbq === "function") {
+                        fbq("track", "CompleteRegistration", {
+                          content_name: "Bible Seminar Signup",
+                          language: lang,
+                        });
+                      }
+                    } else setSignupStatus("error");
                   })
                   .catch(() => setSignupStatus("error"));
               }}

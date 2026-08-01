@@ -3,10 +3,11 @@ import { useLang } from "../context/LangContext";
 import { text } from "../content";
 import doveLogo from "../assets/doveLogo.png";
 
+// Temporarily English-only; uncomment below to re-enable other languages
 const LANGS = [
   { key: "en", label: "English" },
-  { key: "kr", label: "\ud55c\uad6d\uc5b4" },
-  { key: "es", label: "Espa\u00f1ol" },
+  // { key: "kr", label: "한국어" },
+  // { key: "es", label: "Español" },
 ];
 
 export default function Navbar() {

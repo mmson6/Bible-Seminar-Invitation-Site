@@ -2,7 +2,8 @@ import { HashRouter, Routes, Route, Navigate, useParams } from "react-router-dom
 import { LangProvider } from "./context/LangContext";
 import Home from "./pages/Home";
 
-const VALID_LANGS = ["en", "ko", "es"];
+// Temporarily English-only; re-enable ko/es when other language pages are ready
+const VALID_LANGS = ["en" /*, "ko", "es" */];
 
 function LangRoute() {
   const { lang } = useParams();
