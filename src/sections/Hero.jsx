@@ -333,8 +333,8 @@ export default function Hero() {
                   .then((res) => {
                     if (res.ok) {
                       setSignupStatus("success");
-                      if (typeof fbq === "function") {
-                        fbq("track", "CompleteRegistration", {
+                      if (typeof window.fbq === "function") {
+                        window.fbq("track", "CompleteRegistration", {
                           content_name: "Bible Seminar Signup",
                           language: lang,
                         });
