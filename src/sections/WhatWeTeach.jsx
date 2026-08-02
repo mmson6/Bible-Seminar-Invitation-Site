@@ -143,8 +143,8 @@ export default function WhatWeTeach() {
                         }}
                       />
 
-                      {/* Day badge — temporarily hidden; uncomment to restore */}
-                      {/* <div
+                      {/* Day badge */}
+                      <div
                         style={{
                           position: "absolute",
                           top: "12px",
@@ -161,7 +161,7 @@ export default function WhatWeTeach() {
                         }}
                       >
                         {d.day}
-                      </div> */}
+                      </div>
                     </div>
 
                     {/* Text */}
