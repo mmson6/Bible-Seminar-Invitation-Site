@@ -84,8 +84,8 @@ export const text = {
     contactSend: "Send Message",
     contactSuccess: "Message sent! We will get back to you soon.",
     contactError: "Something went wrong. Please try again.",
-    phone: "(312) 520-0117",
-    phoneHref: "tel:+13125200117",
+    phone: "(847) 942-1441",
+    phoneHref: "tel:+18479421441",
     email: "jbchchi@jbchusa.org",
 
     // Hero
@@ -386,8 +386,8 @@ export const text = {
     contactSuccess:
       "\u00a1Mensaje enviado! Nos pondremos en contacto pronto.",
     contactError: "Algo sali\u00f3 mal. Por favor, int\u00e9ntelo de nuevo.",
-    phone: "(618) 977-2661",
-    phoneHref: "tel:+16189772661",
+    phone: "(847) 942-1441",
+    phoneHref: "tel:+18479421441",
     email: "jbchchi@jbchusa.org",
 
     // Hero
