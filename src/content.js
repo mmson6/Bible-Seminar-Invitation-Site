@@ -90,7 +90,7 @@ export const text = {
 
     // Hero
     bibleSeminarLabel: "Bible Seminar",
-    eventTime: "Mon – Thu · 7:30 PM",
+    eventTime: "Mon – Fri · 7:20 PM",
     chip1: "What is life after death?",
     chip2: "Scientific evidence in the Bible",
     chip3: "Why learn the Bible?",
@@ -241,7 +241,7 @@ export const text = {
 
     // Hero
     bibleSeminarLabel: "\uc131\uacbd\uac15\uc5f0\ud68c",
-    eventTime: "\uc6d4 \u2013 \ubaa9 \u00b7 \uc624\ud6c4 7:30",
+    eventTime: "\uc6d4 \u2013 \uae08 \u00b7 \uc624\ud6c4 7:20",
     chip1:
       "\uc8fd\uc74c \uc774\ud6c4\uc5d4 \ubb34\uc5c7\uc774 \uc788\uc744\uae4c?",
     chip2: "\uc131\uacbd \uc18d \uacfc\ud559\uc801 \uc99d\uac70",
@@ -392,7 +392,7 @@ export const text = {
 
     // Hero
     bibleSeminarLabel: "Seminario B\u00edblico",
-    eventTime: "Lun \u2013 Jue \u00b7 7:30 PM",
+    eventTime: "Lun \u2013 Vie \u00b7 7:20 PM",
     chip1: "\u00bfQu\u00e9 hay despu\u00e9s de la muerte?",
     chip2: "Evidencia cient\u00edfica en la Biblia",
     chip3: "\u00bfPor qu\u00e9 aprender la Biblia?",

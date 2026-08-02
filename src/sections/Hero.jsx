@@ -157,7 +157,7 @@ export default function Hero() {
               lineHeight: 1,
             }}
           >
-            07.13 – 07.16.2026,
+            08.17 – 08.21.2026,
           </p>
           <p
             style={{
