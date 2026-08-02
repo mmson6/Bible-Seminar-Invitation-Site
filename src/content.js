@@ -105,7 +105,7 @@ export const text = {
     signupPhone: "Phone *",
     signupNamePlaceholder: "Your name",
     signupConsent:
-      "I agree to be contacted by Jesus Baptist Chicago Church about this event.",
+      "By checking this box, I consent to receive communications from Jesus Baptist Chicago Church regarding this event.",
     signupSending: "Sending...",
     signupBtn: "Sign Up",
 
@@ -263,7 +263,7 @@ export const text = {
     signupPhone: "\uc804\ud654\ubc88\ud638 *",
     signupNamePlaceholder: "\uc774\ub984",
     signupConsent:
-      "\uc2dc\uce74\uace0\uce68\ub840\uad50\ud68c\uac00 \ubcf8 \ud589\uc0ac\uc640 \uad00\ub828\ud558\uc5ec \uc5f0\ub77d\ub4dc\ub9ac\ub294 \uac83\uc5d0 \ub3d9\uc758\ud569\ub2c8\ub2e4.",
+      "\ubcf8 \ud56d\ubaa9\uc5d0 \uccb4\ud06c\ud568\uc73c\ub85c\uc368, \uc2dc\uce74\uace0\uce68\ub840\uad50\ud68c\ub85c\ubd80\ud130 \ubcf8 \ud589\uc0ac\uc640 \uad00\ub828\ud55c \uc5f0\ub77d\uc744 \ubc1b\ub294 \uac83\uc5d0 \ub3d9\uc758\ud569\ub2c8\ub2e4.",
     signupSending: "\uc804\uc1a1 \uc911...",
     signupBtn: "\ub4f1\ub85d\ud558\uae30",
 
@@ -412,7 +412,7 @@ export const text = {
     signupPhone: "Tel\u00e9fono *",
     signupNamePlaceholder: "Tu nombre",
     signupConsent:
-      "Acepto que Jesus Baptist Chicago Church se comunique conmigo sobre este evento.",
+      "Al marcar esta casilla, doy mi consentimiento para recibir comunicaciones de Jesus Baptist Chicago Church con respecto a este evento.",
     signupSending: "Enviando...",
     signupBtn: "Registrarse",
 
