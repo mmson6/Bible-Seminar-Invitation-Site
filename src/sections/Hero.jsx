@@ -21,6 +21,8 @@ export default function Hero() {
   const [vals, setVals] = useState({ name: "", email: "", phone: "" });
   const [consent, setConsent] = useState(false);
   const t = text[lang];
+  const canSubmit =
+    vals.name.trim() && vals.email.trim() && vals.phone.trim() && consent;
 
   return (
     <section
@@ -318,7 +320,7 @@ export default function Hero() {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                if (!vals.name || !vals.email || !vals.phone || !consent) return;
+                if (!canSubmit) return;
                 setSignupStatus("sending");
                 fetch(GHL_WEBHOOKS[lang] || GHL_WEBHOOKS.en, {
                   method: "POST",
@@ -429,14 +431,14 @@ export default function Hero() {
               )}
               <button
                 type="submit"
-                disabled={signupStatus === "sending" || !consent}
+                disabled={signupStatus === "sending" || !canSubmit}
                 style={{
                   background:
-                    signupStatus === "sending" || !consent
+                    signupStatus === "sending" || !canSubmit
                       ? "rgba(255,255,255,0.3)"
                       : "#fff",
                   color:
-                    signupStatus === "sending" || !consent
+                    signupStatus === "sending" || !canSubmit
                       ? "rgba(255,255,255,0.6)"
                       : "var(--blue)",
                   border: "none",
@@ -447,7 +449,7 @@ export default function Hero() {
                   fontSize: "0.9rem",
                   letterSpacing: "0.08em",
                   cursor:
-                    signupStatus === "sending" || !consent
+                    signupStatus === "sending" || !canSubmit
                       ? "not-allowed"
                       : "pointer",
                   transition: "all 0.2s",
