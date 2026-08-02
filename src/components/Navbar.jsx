@@ -3,11 +3,10 @@ import { useLang } from "../context/LangContext";
 import { text } from "../content";
 import doveLogo from "../assets/doveLogo.png";
 
-// Spanish temporarily disabled; uncomment below to re-enable
 const LANGS = [
   { key: "en", label: "English" },
   { key: "kr", label: "한국어" },
-  // { key: "es", label: "Español" },
+  { key: "es", label: "Español" },
 ];
 
 export default function Navbar() {
