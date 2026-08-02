@@ -19,6 +19,7 @@ export default function Hero() {
   const { lang } = useLang();
   const [signupStatus, setSignupStatus] = useState(null);
   const [vals, setVals] = useState({ name: "", email: "", phone: "" });
+  const [consent, setConsent] = useState(false);
   const t = text[lang];
 
   return (
@@ -317,7 +318,7 @@ export default function Hero() {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                if (!vals.name || !vals.email || !vals.phone) return;
+                if (!vals.name || !vals.email || !vals.phone || !consent) return;
                 setSignupStatus("sending");
                 fetch(GHL_WEBHOOKS[lang] || GHL_WEBHOOKS.en, {
                   method: "POST",
@@ -328,6 +329,7 @@ export default function Hero() {
                     phone: normalizePhone(vals.phone),
                     language: lang === "kr" ? "ko" : lang,
                     source: "bible-seminar-signup",
+                    consent: true,
                   }),
                 })
                   .then((res) => {
@@ -380,6 +382,39 @@ export default function Hero() {
                   style={signupInputSt}
                 />
               </div>
+              <label
+                style={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: "10px",
+                  cursor: "pointer",
+                }}
+              >
+                <input
+                  type="checkbox"
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  style={{
+                    marginTop: "3px",
+                    width: "16px",
+                    height: "16px",
+                    flexShrink: 0,
+                    accentColor: "#fff",
+                    cursor: "pointer",
+                  }}
+                />
+                <span
+                  style={{
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontSize: "0.78rem",
+                    color: "rgba(220,235,255,0.75)",
+                    lineHeight: 1.5,
+                    textAlign: "left",
+                  }}
+                >
+                  {t.signupConsent}
+                </span>
+              </label>
               {signupStatus === "error" && (
                 <p
                   style={{
@@ -394,14 +429,14 @@ export default function Hero() {
               )}
               <button
                 type="submit"
-                disabled={signupStatus === "sending"}
+                disabled={signupStatus === "sending" || !consent}
                 style={{
                   background:
-                    signupStatus === "sending"
+                    signupStatus === "sending" || !consent
                       ? "rgba(255,255,255,0.3)"
                       : "#fff",
                   color:
-                    signupStatus === "sending"
+                    signupStatus === "sending" || !consent
                       ? "rgba(255,255,255,0.6)"
                       : "var(--blue)",
                   border: "none",
@@ -412,7 +447,9 @@ export default function Hero() {
                   fontSize: "0.9rem",
                   letterSpacing: "0.08em",
                   cursor:
-                    signupStatus === "sending" ? "not-allowed" : "pointer",
+                    signupStatus === "sending" || !consent
+                      ? "not-allowed"
+                      : "pointer",
                   transition: "all 0.2s",
                   textTransform: "uppercase",
                   boxShadow: "0 4px 14px rgba(0,0,0,0.2)",

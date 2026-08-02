@@ -104,6 +104,8 @@ export const text = {
     signupEmail: "Email *",
     signupPhone: "Phone *",
     signupNamePlaceholder: "Your name",
+    signupConsent:
+      "I agree to be contacted by Jesus Baptist Chicago Church about this event.",
     signupSending: "Sending...",
     signupBtn: "Sign Up",
 
@@ -260,6 +262,8 @@ export const text = {
     signupEmail: "\uc774\uba54\uc77c *",
     signupPhone: "\uc804\ud654\ubc88\ud638 *",
     signupNamePlaceholder: "\uc774\ub984",
+    signupConsent:
+      "\uc2dc\uce74\uace0\uce68\ub840\uad50\ud68c\uac00 \ubcf8 \ud589\uc0ac\uc640 \uad00\ub828\ud558\uc5ec \uc5f0\ub77d\ub4dc\ub9ac\ub294 \uac83\uc5d0 \ub3d9\uc758\ud569\ub2c8\ub2e4.",
     signupSending: "\uc804\uc1a1 \uc911...",
     signupBtn: "\ub4f1\ub85d\ud558\uae30",
 
@@ -407,6 +411,8 @@ export const text = {
     signupEmail: "Correo *",
     signupPhone: "Tel\u00e9fono *",
     signupNamePlaceholder: "Tu nombre",
+    signupConsent:
+      "Acepto que Jesus Baptist Chicago Church se comunique conmigo sobre este evento.",
     signupSending: "Enviando...",
     signupBtn: "Registrarse",
 
