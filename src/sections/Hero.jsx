@@ -5,7 +5,7 @@ import { text } from "../content";
 const GHL_WEBHOOKS = {
   en: "https://services.leadconnectorhq.com/hooks/Fjc9HrLy1iQ3TCPMb4f4/webhook-trigger/GFqqrxyQvsth19Z3OYY6",
   kr: "https://services.leadconnectorhq.com/hooks/Fjc9HrLy1iQ3TCPMb4f4/webhook-trigger/GFqqrxyQvsth19Z3OYY6",
-  es: "https://services.leadconnectorhq.com/hooks/Fjc9HrLy1iQ3TCPMb4f4/webhook-trigger/T5oCs4RN2M7ZJyfoQtrp",
+  es: "https://services.leadconnectorhq.com/hooks/Fjc9HrLy1iQ3TCPMb4f4/webhook-trigger/c1FQuDCc5tTiJJL1jXWp",
 };
 
 function normalizePhone(raw) {
