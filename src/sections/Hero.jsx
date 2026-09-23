@@ -3,9 +3,9 @@ import { useLang } from "../context/LangContext";
 import { text } from "../content";
 
 const GHL_WEBHOOKS = {
-  en: "https://services.leadconnectorhq.com/hooks/Fjc9HrLy1iQ3TCPMb4f4/webhook-trigger/GFqqrxyQvsth19Z3OYY6",
-  kr: "https://services.leadconnectorhq.com/hooks/Fjc9HrLy1iQ3TCPMb4f4/webhook-trigger/GFqqrxyQvsth19Z3OYY6",
-  es: "https://services.leadconnectorhq.com/hooks/Fjc9HrLy1iQ3TCPMb4f4/webhook-trigger/c1FQuDCc5tTiJJL1jXWp",
+  en: "https://services.leadconnectorhq.com/hooks/Fjc9HrLy1iQ3TCPMb4f4/webhook-trigger/m8UJeewnFGK0lXuowfWO",
+  kr: "https://services.leadconnectorhq.com/hooks/Fjc9HrLy1iQ3TCPMb4f4/webhook-trigger/m8UJeewnFGK0lXuowfWO",
+  es: "https://services.leadconnectorhq.com/hooks/Fjc9HrLy1iQ3TCPMb4f4/webhook-trigger/9H9mGAi8X2PyLqmc9x1U",
 };
 
 function normalizePhone(raw) {
@@ -160,7 +160,7 @@ export default function Hero() {
               lineHeight: 1,
             }}
           >
-            08.17 – 08.21.2026,
+            10.05 – 10.09.2026,
           </p>
           <p
             style={{
